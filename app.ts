@@ -90,10 +90,38 @@ function CheckoutBooks(customer: string, ...bookIDs: number[]): string[] {
     return booksCheckedOut;
 }
 
+function GetTitles(author: string): string[];
+function GetTitles(author: string, available: boolean): string[];
+function GetTitles(author: string, available?: boolean): string[] {
+    const allBooks = GetAllBooks();
+    const searchResults: string[] = [];
+
+    if (available !== undefined) {
+        for (let book of allBooks) {
+            if (book.author === author && book.available === available) {
+                searchResults.push(book.title);
+            }
+        }
+    } else {
+        for (let book of allBooks) {
+            if (book.author === author) {
+                searchResults.push(book.title);
+            }
+        }
+    }
+
+    return searchResults;
+}
+
 // ******************************************************
 
-let myBooks: string[] = CheckoutBooks('Camila', 1, 2, 4);
+// let myBooks: string[] = GetTitles('James Joyce');
+let myBooks: string[] = GetTitles('James Joyce', false);
 myBooks.forEach(title => console.log(title));
+
+
+// let myBooks: string[] = CheckoutBooks('Camila', 1, 2, 4);
+// myBooks.forEach(title => console.log(title));
 
 // LogFirstAvailable();
 
