@@ -1,5 +1,18 @@
 import { Category } from './enums';
-import { Book, DamageLogger } from './interfaces';
+import { Book, DamageLogger, Author, Librarian } from './interfaces';
+
+let favoriteAuthors: Author = {
+    email: '',
+    name: '',
+    numBooksPublished: 5,
+};
+
+let favoriteLibrarian: Librarian = {
+    email: '',
+    name: '',
+    assistCustomer: customerName => console.log(customerName),
+    department: '',
+}
 
 function GetAllBooks(): Book[] {
     return [
