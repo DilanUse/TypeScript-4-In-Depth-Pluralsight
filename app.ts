@@ -1,12 +1,10 @@
 import { Category } from './enums';
 import { Book, Logger, Author, Librarian } from './interfaces';
 import { ReferenceItem, UniversityLibrarian } from './classes';
-// import Encyclopedia from './encyclopedia';
 import refBook from './encyclopedia';
-import { CalculateLateFee as CalcFee, MaxBooksAllowed } from './lib/utilityFunctions';
+import { CalculateLateFee as CalcFee, MaxBooksAllowed, Purge } from './lib/utilityFunctions';
 
-// let reference = new Encyclopedia('Fact Book', 2022, 1);
-let reference = new refBook('Fact Book', 2022, 1);
+// let reference = new refBook('Fact Book', 2022, 1);
 
 function GetAllBooks(): Book[] {
     return [
@@ -119,12 +117,10 @@ function PrintBook(currentBook: Book): void {
 
 // ******************************************************
 
-let NewsPaper = class extends ReferenceItem {
-    printCitation(): void {
-        console.log(`Newspaper: ${this.title}`);
-    }
-}
+let inventory: Array<Book> = GetAllBooks();
 
-let myPaper = new NewsPaper('The Gazzete', 2022);
-myPaper.printCitation();
+let purgedBooks = Purge<Book>(inventory);
+purgedBooks.forEach((book) => console.log(book.title));
 
+let purgedNums: Array<number> = Purge<number>([1, 2, 3, 4]);
+console.log(purgedNums);

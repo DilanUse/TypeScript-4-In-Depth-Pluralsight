@@ -1,11 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const enums_1 = require("./enums");
-const classes_1 = require("./classes");
-// import Encyclopedia from './encyclopedia';
-const encyclopedia_1 = require("./encyclopedia");
-// let reference = new Encyclopedia('Fact Book', 2022, 1);
-let reference = new encyclopedia_1.default('Fact Book', 2022, 1);
+const utilityFunctions_1 = require("./lib/utilityFunctions");
+// let reference = new refBook('Fact Book', 2022, 1);
 function GetAllBooks() {
     return [
         { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: enums_1.Category.Fiction },
@@ -92,10 +89,8 @@ function PrintBook(currentBook) {
     console.log(currentBook.title + ' by ' + currentBook.author);
 }
 // ******************************************************
-let NewsPaper = class extends classes_1.ReferenceItem {
-    printCitation() {
-        console.log(`Newspaper: ${this.title}`);
-    }
-};
-let myPaper = new NewsPaper('The Gazzete', 2022);
-myPaper.printCitation();
+let inventory = GetAllBooks();
+let purgedBooks = (0, utilityFunctions_1.Purge)(inventory);
+purgedBooks.forEach((book) => console.log(book.title));
+let purgedNums = (0, utilityFunctions_1.Purge)([1, 2, 3, 4]);
+console.log(purgedNums);
