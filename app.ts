@@ -1,6 +1,10 @@
 import { Category } from './enums';
 import { Book, DamageLogger, Author, Librarian } from './interfaces';
 import { ReferenceItem, UniversityLibrarian, Encyclopedia } from './classes';
+import { CalculateLateFee as CalcFee, MaxBooksAllowed } from './lib/utilityFunctions';
+
+let fee = CalcFee(5);
+let max = MaxBooksAllowed(12);
 
 function GetAllBooks(): Book[] {
     return [
@@ -121,16 +125,4 @@ let NewsPaper = class extends ReferenceItem {
 
 let myPaper = new NewsPaper('The Gazzete', 2022);
 myPaper.printCitation();
-
-// ------------------------------------------------------
-
-class Novel extends class { title: string } {
-    mainCharacter: string;
-}
-
-let favoriteNovel = new Novel();
-favoriteNovel.mainCharacter = 'Jon Doe';
-console.log(`Main Character: ${favoriteNovel.mainCharacter}`);
-// let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
-// refBook.printCitation();
 

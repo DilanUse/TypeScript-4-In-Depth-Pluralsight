@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const enums_1 = require("./enums");
 const classes_1 = require("./classes");
+const utilityFunctions_1 = require("./lib/utilityFunctions");
+let fee = (0, utilityFunctions_1.CalculateLateFee)(5);
+let max = (0, utilityFunctions_1.MaxBooksAllowed)(12);
 function GetAllBooks() {
     return [
         { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: enums_1.Category.Fiction },
@@ -95,12 +98,3 @@ let NewsPaper = class extends classes_1.ReferenceItem {
 };
 let myPaper = new NewsPaper('The Gazzete', 2022);
 myPaper.printCitation();
-// ------------------------------------------------------
-class Novel extends class {
-} {
-}
-let favoriteNovel = new Novel();
-favoriteNovel.mainCharacter = 'Jon Doe';
-console.log(`Main Character: ${favoriteNovel.mainCharacter}`);
-// let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
-// refBook.printCitation();
