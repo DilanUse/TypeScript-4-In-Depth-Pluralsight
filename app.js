@@ -1,7 +1,7 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = require("./enums");
-const classes_1 = require("./classes");
+exports.__esModule = true;
+var enums_1 = require("./enums");
+var classes_1 = require("./classes");
 function GetAllBooks() {
     return [
         { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: enums_1.Category.Fiction },
@@ -10,10 +10,12 @@ function GetAllBooks() {
         { id: 4, title: 'Moby Dick', author: 'Herman Melville', available: true, category: enums_1.Category.Fiction },
     ];
 }
-function LogFirstAvailable(books = GetAllBooks()) {
-    let numberOfBooks = books.length;
-    let firstAvailable = '';
-    for (let currentBook of books) {
+function LogFirstAvailable(books) {
+    if (books === void 0) { books = GetAllBooks(); }
+    var numberOfBooks = books.length;
+    var firstAvailable = '';
+    for (var _i = 0, books_1 = books; _i < books_1.length; _i++) {
+        var currentBook = books_1[_i];
         if (currentBook.available) {
             firstAvailable = currentBook.title;
             break;
@@ -22,11 +24,13 @@ function LogFirstAvailable(books = GetAllBooks()) {
     console.log('Total Books: ' + numberOfBooks);
     console.log('First Available: ' + firstAvailable);
 }
-function GetBookTitlesByCategory(categoryFilter = enums_1.Category.Fiction) {
+function GetBookTitlesByCategory(categoryFilter) {
+    if (categoryFilter === void 0) { categoryFilter = enums_1.Category.Fiction; }
     console.log('Getting books in category: ' + enums_1.Category[categoryFilter]);
-    const allBooks = GetAllBooks();
-    const filteredTitles = [];
-    for (let currentBook of allBooks) {
+    var allBooks = GetAllBooks();
+    var filteredTitles = [];
+    for (var _i = 0, allBooks_1 = allBooks; _i < allBooks_1.length; _i++) {
+        var currentBook = allBooks_1[_i];
         if (currentBook.category === categoryFilter) {
             filteredTitles.push(currentBook.title);
         }
@@ -34,13 +38,14 @@ function GetBookTitlesByCategory(categoryFilter = enums_1.Category.Fiction) {
     return filteredTitles;
 }
 function LogBookTitles(titles) {
-    for (let title of titles) {
+    for (var _i = 0, titles_1 = titles; _i < titles_1.length; _i++) {
+        var title = titles_1[_i];
         console.log(title);
     }
 }
 function GetBookByID(id) {
-    const allBooks = GetAllBooks();
-    return allBooks.filter(book => book.id === id)[0];
+    var allBooks = GetAllBooks();
+    return allBooks.filter(function (book) { return book.id === id; })[0];
 }
 function CreateCustomerID(name, id) {
     return name + id;
@@ -54,11 +59,16 @@ function CreateCustomer(name, age, city) {
         console.log('City: ' + city);
     }
 }
-function CheckoutBooks(customer, ...bookIDs) {
+function CheckoutBooks(customer) {
+    var bookIDs = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        bookIDs[_i - 1] = arguments[_i];
+    }
     console.log('Checking out books for ', customer);
-    let booksCheckedOut = [];
-    for (let id of bookIDs) {
-        let book = GetBookByID(id);
+    var booksCheckedOut = [];
+    for (var _a = 0, bookIDs_1 = bookIDs; _a < bookIDs_1.length; _a++) {
+        var id = bookIDs_1[_a];
+        var book = GetBookByID(id);
         if (book.available) {
             booksCheckedOut.push(book.title);
         }
@@ -66,17 +76,19 @@ function CheckoutBooks(customer, ...bookIDs) {
     return booksCheckedOut;
 }
 function GetTitles(author, available) {
-    const allBooks = GetAllBooks();
-    const searchResults = [];
+    var allBooks = GetAllBooks();
+    var searchResults = [];
     if (available !== undefined) {
-        for (let book of allBooks) {
+        for (var _i = 0, allBooks_2 = allBooks; _i < allBooks_2.length; _i++) {
+            var book = allBooks_2[_i];
             if (book.author === author && book.available === available) {
                 searchResults.push(book.title);
             }
         }
     }
     else {
-        for (let book of allBooks) {
+        for (var _a = 0, allBooks_3 = allBooks; _a < allBooks_3.length; _a++) {
+            var book = allBooks_3[_a];
             if (book.author === author) {
                 searchResults.push(book.title);
             }
@@ -88,9 +100,7 @@ function PrintBook(currentBook) {
     console.log(currentBook.title + ' by ' + currentBook.author);
 }
 // ******************************************************
-let ref = new classes_1.ReferenceItem('Updated Facts and Figures', 2024);
-// ref.title = 'Facts and Figures'
-// ref.year = 2022;
+var ref = new classes_1.ReferenceItem();
+ref.title = 'Facts and Figures';
+ref.year = 2022;
 ref.printItem();
-ref.publisher = 'Random Data Publishing';
-console.log(ref.publisher);
