@@ -136,14 +136,11 @@ magazines.forEach(magazine => magazineShelf.add(magazine));
 let firstMagazine: Magazine = magazineShelf.getFirst();
 console.log(firstMagazine);
 
-let numberShelf: Shelf<number> = new Shelf<number>();
-[5, 10, 16].forEach(num => numberShelf.add(num));
-console.log(numberShelf.getFirst());
+magazineShelf.printTitles();
 
+let mobyDickBook = bookShelf.find('Moby Dick');
+console.log(`${mobyDickBook.title} (${mobyDickBook.author})`);
 
-
-// let purgedBooks = Purge<Book>(inventory);
-// purgedBooks.forEach((book) => console.log(book.title));
-//
-// let purgedNums: Array<number> = Purge<number>([1, 2, 3, 4]);
-// console.log(purgedNums);
+// let numberShelf: Shelf<number> = new Shelf<number>();
+// [5, 10, 16].forEach(num => numberShelf.add(num));
+// console.log(numberShelf.getFirst());
