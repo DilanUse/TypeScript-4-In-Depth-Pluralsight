@@ -2,7 +2,7 @@ import { Category } from './enums';
 import { Book, Logger, Author, Librarian, Magazine } from './interfaces';
 import { ReferenceItem, UniversityLibrarian } from './classes';
 import refBook from './encyclopedia';
-import { CalculateLateFee as CalcFee, MaxBooksAllowed, Purge } from './lib/utilityFunctions';
+// import { CalculateLateFee as CalcFee, MaxBooksAllowed, Purge } from './lib/utilityFunctions';
 import Shelf from './shelf';
 
 function GetAllBooks(): Book[] {

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const enums_1 = require("./enums");
+// import { CalculateLateFee as CalcFee, MaxBooksAllowed, Purge } from './lib/utilityFunctions';
 const shelf_1 = require("./shelf");
 function GetAllBooks() {
     return [
@@ -108,3 +109,4 @@ console.log(`${mobyDickBook.title} (${mobyDickBook.author})`);
 // let numberShelf: Shelf<number> = new Shelf<number>();
 // [5, 10, 16].forEach(num => numberShelf.add(num));
 // console.log(numberShelf.getFirst());
+//# sourceMappingURL=app.js.map

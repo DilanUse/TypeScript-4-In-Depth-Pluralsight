@@ -2,7 +2,16 @@
   "compilerOptions": {
     "target": "es6",
     "outDir": "js",
-    "watch": true,
-    "module": "CommonJS"
-  }
+    "module": "CommonJS",
+    "sourceMap": true
+  },
+//  "files": [
+//    "app.ts"
+//  ]
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "./lib/*"
+  ]
 }

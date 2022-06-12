@@ -10,3 +10,4 @@ var Category;
     Category[Category["Children"] = 4] = "Children";
 })(Category || (Category = {}));
 exports.Category = Category;
+//# sourceMappingURL=enums.js.map
