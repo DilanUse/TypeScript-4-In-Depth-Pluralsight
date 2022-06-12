@@ -113,6 +113,24 @@ function PrintBook(currentBook: Book): void {
 
 // ******************************************************
 
-let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
-refBook.printCitation();
+let NewsPaper = class extends ReferenceItem {
+    printCitation(): void {
+        console.log(`Newspaper: ${this.title}`);
+    }
+}
+
+let myPaper = new NewsPaper('The Gazzete', 2022);
+myPaper.printCitation();
+
+// ------------------------------------------------------
+
+class Novel extends class { title: string } {
+    mainCharacter: string;
+}
+
+let favoriteNovel = new Novel();
+favoriteNovel.mainCharacter = 'Jon Doe';
+console.log(`Main Character: ${favoriteNovel.mainCharacter}`);
+// let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
+// refBook.printCitation();
 

@@ -88,5 +88,19 @@ function PrintBook(currentBook) {
     console.log(currentBook.title + ' by ' + currentBook.author);
 }
 // ******************************************************
-let refBook = new classes_1.Encyclopedia('WorldPedia', 1900, 10);
-refBook.printCitation();
+let NewsPaper = class extends classes_1.ReferenceItem {
+    printCitation() {
+        console.log(`Newspaper: ${this.title}`);
+    }
+};
+let myPaper = new NewsPaper('The Gazzete', 2022);
+myPaper.printCitation();
+// ------------------------------------------------------
+class Novel extends class {
+} {
+}
+let favoriteNovel = new Novel();
+favoriteNovel.mainCharacter = 'Jon Doe';
+console.log(`Main Character: ${favoriteNovel.mainCharacter}`);
+// let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
+// refBook.printCitation();
