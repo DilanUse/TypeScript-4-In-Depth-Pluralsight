@@ -113,5 +113,6 @@ function PrintBook(currentBook: Book): void {
 
 // ******************************************************
 
-let refBook = new Encyclopedia('WorldPedia', 1900, 10);
-refBook.printItem();
+let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
+refBook.printCitation();
+
