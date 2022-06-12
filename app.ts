@@ -1,10 +1,12 @@
 import { Category } from './enums';
 import { Book, Logger, Author, Librarian } from './interfaces';
-import { ReferenceItem, UniversityLibrarian, Encyclopedia } from './classes';
+import { ReferenceItem, UniversityLibrarian } from './classes';
+// import Encyclopedia from './encyclopedia';
+import refBook from './encyclopedia';
 import { CalculateLateFee as CalcFee, MaxBooksAllowed } from './lib/utilityFunctions';
 
-let fee = CalcFee(5);
-let max = MaxBooksAllowed(12);
+// let reference = new Encyclopedia('Fact Book', 2022, 1);
+let reference = new refBook('Fact Book', 2022, 1);
 
 function GetAllBooks(): Book[] {
     return [
